@@ -1,4 +1,4 @@
-package com.example.androidgsonapp;
+package com.example.androidgsonapp.adapter;
 
 import com.squareup.moshi.FromJson;
 import com.squareup.moshi.Json;

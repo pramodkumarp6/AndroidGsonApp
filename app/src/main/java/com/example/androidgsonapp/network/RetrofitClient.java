@@ -1,16 +1,10 @@
 package com.example.androidgsonapp.network;
 
-import android.util.Base64;
-
-import com.example.androidgsonapp.Api;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.squareup.moshi.Moshi;
 
 import java.io.IOException;
-
-import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.hilt.InstallIn;
@@ -77,7 +71,7 @@ public class RetrofitClient {
         return mInstance;
     }
 
-    public Api getApi() {
-        return retrofit.create(Api.class);
+    public ApiService getApi() {
+        return retrofit.create(ApiService.class);
     }
 }

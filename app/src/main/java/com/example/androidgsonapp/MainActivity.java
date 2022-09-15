@@ -4,12 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.database.DatabaseUtils;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.example.androidgsonapp.databinding.ActivityMainBinding;
+import com.example.androidgsonapp.model.Users;
 import com.example.androidgsonapp.network.RetrofitClient;
 import com.example.androidgsonapp.viewmodel.MainViewModel;
 import com.google.gson.Gson;
