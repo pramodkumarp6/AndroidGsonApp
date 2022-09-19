@@ -2,7 +2,6 @@ package com.example.androidgsonapp.di;
 
 import com.example.androidgsonapp.network.ApiService;
 import com.example.androidgsonapp.network.Constants;
-import com.example.androidgsonapp.network.RetrofitClient;
 
 import javax.inject.Singleton;
 
@@ -33,7 +32,7 @@ public class AppModule {
                 .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        //.create(ApiService.class)
+
 
     }
 

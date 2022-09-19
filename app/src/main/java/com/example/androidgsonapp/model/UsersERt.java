@@ -6,17 +6,12 @@ import com.squareup.moshi.JsonClass;
 import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
-@JsonClass(generateAdapter = true)
-public class Users {
-     @Json(name = "id")
+
+public class UsersERt {
+
   private int id;
-
-  @Json(name = "title")
   private String title;
-  @Json(name = "body")
-
   private String body;
-  @Json(name = "userId") int userIds;
   private int userId;
 
   public int getId() {
