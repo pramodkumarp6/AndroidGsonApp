@@ -12,7 +12,9 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.androidgsonapp.databinding.FragmentSlideshowBinding;
 
+import dagger.hilt.android.AndroidEntryPoint;
 
+@AndroidEntryPoint
 public class SlideshowFragment extends Fragment {
 
     private FragmentSlideshowBinding binding;

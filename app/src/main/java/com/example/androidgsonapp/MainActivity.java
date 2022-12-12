@@ -1,10 +1,11 @@
 package com.example.androidgsonapp;
 
+
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
-
-import android.os.Bundle;
 
 import com.example.androidgsonapp.databinding.ActivityMainBinding;
 import com.example.androidgsonapp.viewmodel.MainViewModel;

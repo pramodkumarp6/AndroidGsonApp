@@ -12,7 +12,9 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.androidgsonapp.databinding.FragmentHomeBinding;
 
+import dagger.hilt.android.AndroidEntryPoint;
 
+@AndroidEntryPoint
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;

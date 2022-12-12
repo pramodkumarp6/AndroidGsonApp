@@ -1,16 +1,26 @@
 package com.example.androidgsonapp.model;
 
+import lombok.Data;
+
+@Data
 public class User {
-    private String id;
+    private int id;
     private String email;
     private String name;
     private String school;
 
-    public String getId() {
+    public User(int id, String email, String name, String school) {
+        this.id = id;
+        this.email = email;
+        this.name = name;
+        this.school = school;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -36,5 +46,15 @@ public class User {
 
     public void setSchool(String school) {
         this.school = school;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", name='" + name + '\'' +
+                ", school='" + school + '\'' +
+                '}';
     }
 }
