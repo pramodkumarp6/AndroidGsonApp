@@ -73,7 +73,7 @@ public class DashBoardActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.dash_board, menu);
+        getMenuInflater().inflate(R.menu.activity_dash_board_drawer, menu);
         return true;
     }
 
@@ -81,7 +81,7 @@ public class DashBoardActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
 
-            case R.id.action_settings:
+           /* case R.id.action_settings:
                 Intent i = new Intent(this, SettingActivity.class);
                 startActivity(i);
                 break;
@@ -93,7 +93,7 @@ public class DashBoardActivity extends AppCompatActivity {
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
                 startActivity(intent);
-                break;
+                break;*/
         }
 
         return super.onOptionsItemSelected(item);
