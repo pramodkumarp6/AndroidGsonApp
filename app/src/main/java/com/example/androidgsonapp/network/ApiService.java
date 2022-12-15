@@ -2,6 +2,7 @@ package com.example.androidgsonapp.network;
 
 import com.example.androidgsonapp.model.LoginResponse;
 import com.example.androidgsonapp.model.RegisterResponse;
+import com.example.androidgsonapp.model.UsersInfoDetails;
 
 import java.util.List;
 
@@ -30,6 +31,8 @@ public interface ApiService {
 
     );
 
+    @GET("allusers")
+    Observable<UsersInfoDetails>getData();
 
 
 }

@@ -1,7 +1,7 @@
 package com.example.androidgsonapp.di;
 
 import com.example.androidgsonapp.network.ApiService;
-import com.example.androidgsonapp.network.Constants;
+import com.example.androidgsonapp.utils.Constants;
 
 import javax.inject.Singleton;
 

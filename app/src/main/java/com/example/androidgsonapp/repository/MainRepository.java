@@ -1,18 +1,15 @@
 package com.example.androidgsonapp.repository;
-
-
-import android.content.Context;
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.androidgsonapp.LoginActivity;
 import com.example.androidgsonapp.model.LoginResponse;
-import com.example.androidgsonapp.model.User;
+import com.example.androidgsonapp.model.RegisterResponse;
 import com.example.androidgsonapp.network.ApiService;
 import com.example.androidgsonapp.preference.SharedPrefManager;
 
 import javax.inject.Inject;
-
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -28,13 +25,16 @@ public class MainRepository {
 
 
     private MutableLiveData<LoginResponse>  data = new MutableLiveData<>();
+    private MutableLiveData<String>  registerData = new MutableLiveData<>();
 
 
          public void login(String email,String password){
+
              Log.e("login: ",email );
-             Log.e("login: ",password );
+             Log.e("loginPassword: ",password );
 
              apiService.userLogin(email,password)
+
                  .subscribeOn(Schedulers.io())
                  .subscribeOn(AndroidSchedulers.mainThread())
                      .subscribe(new Observer<LoginResponse>() {
@@ -46,21 +46,8 @@ public class MainRepository {
                          @Override
                          public void onNext(LoginResponse response) {
                              LoginResponse loginResponse = response;
-
+                             Log.e("onNext: ",response.toString() );
                              data.postValue(loginResponse);
-
-
-                          /*   if(!loginResponse.isError()){
-                                 SharedPrefManager.getInstance().saveUser(response.getUser());
-
-                                 data.postValue(loginResponse.getUser().toString());
-
-                             }else {
-                                 data.postValue(loginResponse.getMessage());
-
-                             }*/
-
-
 
 
                          }
@@ -81,6 +68,46 @@ public class MainRepository {
     public MutableLiveData<LoginResponse> getData() {
         return data;
     }
+
+    public void registerUser(String email, String password, String name, String school) {
+        apiService.createUser(email,password,name,school)
+                .subscribeOn(Schedulers.io())
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<RegisterResponse>() {
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(RegisterResponse registerResponse) {
+
+                        if(registerResponse ==null){
+                            registerData.postValue(registerResponse.getMessage());
+                        }else {
+                            registerData.postValue(registerResponse.getMessage());
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+    public MutableLiveData<String>getRegisterData(){
+             return registerData;
+    }
+
 }
 
 
