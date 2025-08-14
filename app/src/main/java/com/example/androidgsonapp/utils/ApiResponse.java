@@ -1,4 +1,4 @@
-package com.example.androidgsonapp.api;
+package com.example.androidgsonapp.utils;
 
 public class ApiResponse <T>{
 
