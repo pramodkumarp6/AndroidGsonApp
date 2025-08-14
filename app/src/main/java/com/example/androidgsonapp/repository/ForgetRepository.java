@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.androidgsonapp.model.LoginResponse;
 import com.example.androidgsonapp.model.RegisterResponse;
-import com.example.androidgsonapp.network.ApiService;
+import com.example.androidgsonapp.api.ApiService;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

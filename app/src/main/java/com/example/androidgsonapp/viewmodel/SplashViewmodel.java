@@ -2,11 +2,10 @@ package com.example.androidgsonapp.viewmodel;
 
 import androidx.lifecycle.ViewModel;
 
-import com.example.androidgsonapp.network.ApiService;
+import com.example.androidgsonapp.api.ApiService;
 
 import javax.inject.Inject;
 
-import dagger.hilt.android.HiltAndroidApp;
 import dagger.hilt.android.lifecycle.HiltViewModel;
 
 
