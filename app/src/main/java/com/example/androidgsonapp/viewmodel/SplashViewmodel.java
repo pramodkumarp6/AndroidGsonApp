@@ -2,7 +2,7 @@ package com.example.androidgsonapp.viewmodel;
 
 import androidx.lifecycle.ViewModel;
 
-import com.example.androidgsonapp.api.ApiService;
+import com.example.androidgsonapp.data.remote.ApiService;
 
 import javax.inject.Inject;
 
