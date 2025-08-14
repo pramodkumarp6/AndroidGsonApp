@@ -4,9 +4,11 @@ import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.androidgsonapp.db.AppDatabase;
 import com.example.androidgsonapp.model.LoginResponse;
 import com.example.androidgsonapp.model.RegisterResponse;
 import com.example.androidgsonapp.api.ApiService;
+import com.example.androidgsonapp.preference.SharedPrefManager;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -19,6 +21,8 @@ import io.reactivex.schedulers.Schedulers;
 @Singleton
 public class LoginRepository {
     private final ApiService apiService;
+    private  SharedPrefManager sharedPrefManager;
+    private  AppDatabase appDatabase;
     private final CompositeDisposable disposables = new CompositeDisposable();
     private final MutableLiveData<LoginResponse>  data = new MutableLiveData<>();
     private final MutableLiveData<String>  registerData = new MutableLiveData<>();
