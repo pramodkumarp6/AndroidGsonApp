@@ -3,7 +3,7 @@ package com.example.androidgsonapp.viewmodel;
 
 import androidx.lifecycle.ViewModel;
 
-import com.example.androidgsonapp.repository.MapRepository;
+import com.example.androidgsonapp.data.repository.MapRepository;
 
 import javax.inject.Inject;
 

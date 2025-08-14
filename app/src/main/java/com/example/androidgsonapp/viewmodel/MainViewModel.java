@@ -1,16 +1,12 @@
 package com.example.androidgsonapp.viewmodel;
 import android.text.TextUtils;
-import android.util.Log;
 
-import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.androidgsonapp.model.LoginResponse;
-import com.example.androidgsonapp.repository.MainRepository;
-
-import java.io.Closeable;
+import com.example.androidgsonapp.data.model.LoginResponse;
+import com.example.androidgsonapp.data.repository.MainRepository;
 
 import javax.inject.Inject;
 

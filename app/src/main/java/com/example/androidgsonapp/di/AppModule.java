@@ -1,6 +1,6 @@
 package com.example.androidgsonapp.di;
 
-import com.example.androidgsonapp.api.ApiService;
+import com.example.androidgsonapp.data.remote.ApiService;
 import com.example.androidgsonapp.utils.Constants;
 
 import java.util.concurrent.TimeUnit;
