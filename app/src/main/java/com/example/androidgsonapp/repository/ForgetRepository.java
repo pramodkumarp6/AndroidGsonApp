@@ -9,14 +9,16 @@ import com.example.androidgsonapp.model.RegisterResponse;
 import com.example.androidgsonapp.network.ApiService;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
+@Singleton
 public class ForgetRepository {
-    private ApiService apiService;
+    private final ApiService apiService;
 
     @Inject
     public ForgetRepository(ApiService apiService) {
@@ -24,8 +26,8 @@ public class ForgetRepository {
     }
 
 
-    private MutableLiveData<LoginResponse>  data = new MutableLiveData<>();
-    private MutableLiveData<String>  registerData = new MutableLiveData<>();
+    private final MutableLiveData<LoginResponse>  data = new MutableLiveData<>();
+    private final MutableLiveData<String>  registerData = new MutableLiveData<>();
 
 
          public void login(String email,String password){

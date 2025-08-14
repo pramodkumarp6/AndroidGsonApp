@@ -3,20 +3,21 @@ import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.androidgsonapp.LoginActivity;
 import com.example.androidgsonapp.model.LoginResponse;
 import com.example.androidgsonapp.model.RegisterResponse;
 import com.example.androidgsonapp.network.ApiService;
-import com.example.androidgsonapp.preference.SharedPrefManager;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
+@Singleton
 public class MainRepository {
-    private ApiService apiService;
+    private final ApiService apiService;
 
     @Inject
     public MainRepository(ApiService apiService) {
@@ -108,6 +109,8 @@ public class MainRepository {
              return registerData;
     }
 
+    public static class SplashRepository {
+    }
 }
 
 

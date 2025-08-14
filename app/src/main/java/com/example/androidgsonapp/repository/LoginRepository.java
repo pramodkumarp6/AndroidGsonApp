@@ -9,14 +9,21 @@ import com.example.androidgsonapp.model.RegisterResponse;
 import com.example.androidgsonapp.network.ApiService;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-
+@Singleton
 public class LoginRepository {
-    private ApiService apiService;
+    private final ApiService apiService;
+    private final CompositeDisposable disposables = new CompositeDisposable();
+    private final MutableLiveData<LoginResponse>  data = new MutableLiveData<>();
+    private final MutableLiveData<String>  registerData = new MutableLiveData<>();
+    private final MutableLiveData<String> errorData = new MutableLiveData<>();
+
 
     @Inject
     public LoginRepository(ApiService apiService) {
@@ -24,8 +31,6 @@ public class LoginRepository {
     }
 
 
-    private MutableLiveData<LoginResponse>  data = new MutableLiveData<>();
-    private MutableLiveData<String>  registerData = new MutableLiveData<>();
 
 
          public void login(String email,String password){
@@ -36,25 +41,25 @@ public class LoginRepository {
              apiService.userLogin(email,password)
 
                  .subscribeOn(Schedulers.io())
-                 .subscribeOn(AndroidSchedulers.mainThread())
+                 .observeOn(AndroidSchedulers.mainThread())
                      .subscribe(new Observer<LoginResponse>() {
                          @Override
                          public void onSubscribe(Disposable d) {
-
+                             disposables.add(d);
                          }
 
                          @Override
                          public void onNext(LoginResponse response) {
-                             LoginResponse loginResponse = response;
                              Log.e("onNext: ",response.toString() );
-                             data.postValue(loginResponse);
+                             data.postValue(response);
 
 
                          }
 
                          @Override
                          public void onError(Throwable e) {
-
+                             Log.e("Login Error", e.getMessage(), e);
+                             errorData.postValue(e.getMessage());
                          }
 
                          @Override

@@ -14,10 +14,17 @@ import dagger.hilt.android.lifecycle.HiltViewModel;
 
 @HiltViewModel
 public class ForgetViewModel extends ViewModel {
+
     private MainRepository mainRepository;
     public LiveData<LoginResponse>loginData;
-    private MutableLiveData<String>  valid = new MutableLiveData<>();
+    private final MutableLiveData<String>  valid = new MutableLiveData<>();
     private MutableLiveData<String>  Registervalid = new MutableLiveData<>();
+
+    @Inject
+    public ForgetViewModel(MainRepository mainRepository) {
+        this.mainRepository = mainRepository;
+    }
+
 
 
 
@@ -26,7 +33,7 @@ public class ForgetViewModel extends ViewModel {
 
 
     @Inject
-    public forgetViewModel(MainRepository mainRepository) {
+    public void forgetViewModel(MainRepository mainRepository) {
         this.mainRepository = mainRepository;
     }
 
@@ -88,5 +95,13 @@ public class ForgetViewModel extends ViewModel {
     }
     public LiveData<String> RegisterValid() {
         return valid;
+    }
+
+    public MutableLiveData<String> getRegistervalid() {
+        return Registervalid;
+    }
+
+    public void setRegistervalid(MutableLiveData<String> registervalid) {
+        Registervalid = registervalid;
     }
 }

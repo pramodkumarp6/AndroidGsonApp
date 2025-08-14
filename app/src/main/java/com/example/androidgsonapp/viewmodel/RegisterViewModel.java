@@ -1,3 +1,5 @@
+package com.example.androidgsonapp.viewmodel;
+
 import android.text.TextUtils;
 
 import androidx.lifecycle.LiveData;
@@ -13,9 +15,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel;
 
 @HiltViewModel
 public class RegisterViewModel extends ViewModel {
-    private MainRepository mainRepository;
+    private final MainRepository mainRepository;
     public LiveData<LoginResponse>loginData;
-    private MutableLiveData<String>  valid = new MutableLiveData<>();
+    private final MutableLiveData<String>  valid = new MutableLiveData<>();
     private MutableLiveData<String>  Registervalid = new MutableLiveData<>();
 
 
@@ -87,5 +89,13 @@ public class RegisterViewModel extends ViewModel {
     }
     public LiveData<String> RegisterValid() {
         return valid;
+    }
+
+    public MutableLiveData<String> getRegistervalid() {
+        return Registervalid;
+    }
+
+    public void setRegistervalid(MutableLiveData<String> registervalid) {
+        Registervalid = registervalid;
     }
 }
